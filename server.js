@@ -1,3 +1,4 @@
+import 'dotenv/config'; // load .env variables at the top
 import express from "express";
 import cors from "cors";
 import { connectDB } from "./db.js";
@@ -16,4 +17,5 @@ app.use("/api", auth);
 app.use("/api/readings", readings);
 app.use("/api/support", support);
 
-app.listen(5000, () => console.log("Server running on 5000"));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
